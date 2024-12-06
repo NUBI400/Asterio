@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dphnqbvjck53t"]
+
+[ext_resource type="Texture2D" uid="uid://cuns71y17fpw5" path="res://Assets/Hdrs/kloppenheim_07_puresky_4k.hdr" id="1_572nt"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_woivl"]
+panorama = ExtResource("1_572nt")
+
+[sub_resource type="Sky" id="Sky_goedd"]
+sky_material = SubResource("PanoramaSkyMaterial_woivl")
+
+[sub_resource type="Environment" id="Environment_os8oi"]
+background_mode = 2
+sky = SubResource("Sky_goedd")
+reflected_light_source = 2
+tonemap_exposure = 0.8
+fog_light_color = Color(0.176471, 0.113725, 0.0431373, 1)
+volumetric_fog_enabled = true
+
+[node name="Ceu" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_os8oi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.842622, -2.51121e-08, -0.538506, 0.305005, 0.824136, 0.477254, 0.443802, -0.566392, 0.694435, 0, 0, 0)
+light_energy = 0.2
+shadow_enabled = true

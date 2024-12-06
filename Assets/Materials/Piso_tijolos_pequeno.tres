@@ -1,0 +1,32 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://qu8t07t0cfw4"]
+
+[ext_resource type="Texture2D" uid="uid://cco1onph1xdgm" path="res://Assets/Texturas/textures piso tiles/blue_floor_tiles_01_ao_2k.jpg" id="1_feu0p"]
+[ext_resource type="Texture2D" uid="uid://bbi7vatl8mx3f" path="res://Assets/Texturas/textures piso tiles/blue_floor_tiles_01_diff_2k.jpg" id="2_sq1g1"]
+[ext_resource type="Texture2D" uid="uid://21lbymkn3nbl" path="res://Assets/Texturas/textures piso tiles/blue_floor_tiles_01_rough_2k.jpg" id="3_aqld8"]
+[ext_resource type="Texture2D" uid="uid://cww0m1wwt8d7u" path="res://Assets/Texturas/textures piso tiles/blue_floor_tiles_01_arm_2k.jpg" id="4_7e1tt"]
+[ext_resource type="Texture2D" uid="uid://cm811q6p2yr38" path="res://Assets/Texturas/textures piso tiles/blue_floor_tiles_01_nor_dx_2k.jpg" id="5_ygmwo"]
+
+[resource]
+albedo_texture = ExtResource("1_feu0p")
+metallic = 1.0
+metallic_texture = ExtResource("4_7e1tt")
+roughness_texture = ExtResource("4_7e1tt")
+roughness_texture_channel = 4
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 7.95
+normal_enabled = true
+normal_texture = ExtResource("5_ygmwo")
+rim_tint = 1.0
+rim_texture = ExtResource("2_sq1g1")
+clearcoat_texture = ExtResource("2_sq1g1")
+anisotropy_flowmap = ExtResource("2_sq1g1")
+ao_texture = ExtResource("2_sq1g1")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("3_aqld8")
+refraction_scale = 1.0
+uv1_scale = Vector3(30, 30, 30)
+uv1_triplanar_sharpness = 0.0018866

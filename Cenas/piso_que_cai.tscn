@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://c42haxe8678el"]
+
+[ext_resource type="Material" uid="uid://qu8t07t0cfw4" path="res://Assets/Materials/Piso_tijolos_pequeno.tres" id="1_jb8np"]
+[ext_resource type="Script" path="res://Scripts/Cenario/Piso_que_cai/piso_que_cai.gd" id="2_dmnpv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_liqdo"]
+size = Vector3(5.7851, 1.55481, 5.63745)
+
+[sub_resource type="Animation" id="Animation_nxmh3"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_offcv"]
+resource_name = "caindo"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:posisaoinicial")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 10]
+}
+
+[sub_resource type="Animation" id="Animation_wcmh3"]
+resource_name = "voltar"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_67qjm"]
+_data = {
+"RESET": SubResource("Animation_nxmh3"),
+"caindo": SubResource("Animation_offcv"),
+"voltar": SubResource("Animation_wcmh3")
+}
+
+[node name="Piso que cai" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+use_collision = true
+collision_layer = 2
+collision_mask = 7
+size = Vector3(5.81921, 1, 5.65137)
+material = ExtResource("1_jb8np")
+script = ExtResource("2_dmnpv")
+posisaoinicial = 1
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00869751, 0.277405, -0.00280762)
+shape = SubResource("BoxShape3D_liqdo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_67qjm")
+}
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
